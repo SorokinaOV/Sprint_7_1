@@ -40,7 +40,7 @@ public class ParamOrdersTest {
     @Test
     @DisplayName("Размещение заказа с самокатами разных цветов")
     @Description("Проверяем корректность размещения заказа с самокатами разных цветов")
-    public void OrderingWithScootersInDifferentColors() {
+    public void orderingWithScootersInDifferentColors() {
         Orders orders = new Orders(colour);
         ValidatableResponse responseCreateOrder = ordersSteps.createNewOrder(orders);
         track = responseCreateOrder.extract().path("track");
@@ -51,7 +51,7 @@ public class ParamOrdersTest {
 
     @After
     @Step("Отменить заказ")
-    public void CancelTestOrder() {
+    public void сancelTestOrder() {
         ordersSteps.cancelOrder(track);
     }
 }

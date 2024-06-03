@@ -6,7 +6,7 @@ import io.restassured.response.ValidatableResponse;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 
 public class OrdersListTest {
     @Before
@@ -22,7 +22,7 @@ public class OrdersListTest {
         ValidatableResponse responseOrderList = orderSteps.getOrderList();
         responseOrderList.assertThat()
                 .statusCode(200)
-                .body("orders", notNullValue());
+                .body("orders", not(empty())); // проверка not(empty())- мы убедимся в том, что пришло, является не пустым списком
     }
 }
 
